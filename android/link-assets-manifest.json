@@ -1,0 +1,61 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/Fonts/Belleza-Regular.ttf",
+      "sha1": "fe2442dfcc951d6b9b0fdd4ec4f9fd4a6de1b893"
+    },
+    {
+      "path": "src/assets/Fonts/Lexend-VariableFont_wght.ttf",
+      "sha1": "7c1eeee7ea029415d7e6deeea3701a4b7bd5287e"
+    },
+    {
+      "path": "src/assets/Fonts/OFL copy.txt",
+      "sha1": "0720314eb1e8c178465ce90d78d52c17e145b089"
+    },
+    {
+      "path": "src/assets/Fonts/OFL.txt",
+      "sha1": "90849ce07e303976e08b807a29ac1f808a47afd5"
+    },
+    {
+      "path": "src/assets/Fonts/README.txt",
+      "sha1": "cca3cbaf838625274145aa53237e1239e562cef5"
+    },
+    {
+      "path": "src/assets/Fonts/static/Lexend-Black.ttf",
+      "sha1": "d5cb18ad3ffeeed68c3753396450935fc5ecbeb2"
+    },
+    {
+      "path": "src/assets/Fonts/static/Lexend-Bold.ttf",
+      "sha1": "df3c3feab8ac51ab6f8d6a01f3b3a0e19dc88d03"
+    },
+    {
+      "path": "src/assets/Fonts/static/Lexend-ExtraBold.ttf",
+      "sha1": "b4eb65e2f16d6614bde3f7d9d0bb09742ff47163"
+    },
+    {
+      "path": "src/assets/Fonts/static/Lexend-ExtraLight.ttf",
+      "sha1": "29cea0bfaa9b846ba18aa6ff8c4914db5f09ebd7"
+    },
+    {
+      "path": "src/assets/Fonts/static/Lexend-Light.ttf",
+      "sha1": "7ee28022da7fcd1f0adcfe7c2d73650c59d5c1fc"
+    },
+    {
+      "path": "src/assets/Fonts/static/Lexend-Medium.ttf",
+      "sha1": "d607ea1e392b925d5229569cd3a8c9bdfcac1eaf"
+    },
+    {
+      "path": "src/assets/Fonts/static/Lexend-Regular.ttf",
+      "sha1": "dd3cee6e434d8debb7699473bd61918cfb54798d"
+    },
+    {
+      "path": "src/assets/Fonts/static/Lexend-SemiBold.ttf",
+      "sha1": "2a080dd36278ff2755d5976317cbeeecbcf6cc62"
+    },
+    {
+      "path": "src/assets/Fonts/static/Lexend-Thin.ttf",
+      "sha1": "13b34f576c98265048bba2deebe6a97fbc055626"
+    }
+  ]
+}
