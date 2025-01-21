@@ -1,12 +1,16 @@
 import React from 'react'
-import Login from './src/Components/Login'
-import Tutorial from './src/Frames/Screen/Tutorial'
+import TutorialFrame from './src/Frames/TutorialFrame.tsx/TutorialFrame'
+import Loginnavigation from './src/Navigation/Loginnavigation'
+
 
  const App = () => {
   return (
-    <>
-    <Tutorial/>
+  <>
+    {/* <TutorialFrame/> */}
+    <Loginnavigation/>
     </>
+   
+  
   )
 }
 export default App

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">wanderobe</string>
+    <string name="facebook_app_id">1256616498738661</string>
+    <string name="facebook_client_token">44ad3934f60ec83e0df32df8fa7c2317</string>
 </resources>

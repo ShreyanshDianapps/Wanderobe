@@ -3,10 +3,20 @@ import {StyleSheet, View,Text, Touchable, TouchableOpacity} from 'react-native'
 import { normalize, vh ,vw} from '../utils/dimensions'
 import Color from '../utils/Color'
 import Fonts from '../utils/Fonts'
- const Login = () => {
+
+type LoginProps = {
+    text:string;
+    backgroundcolor?: string;         
+    color?: string;     
+    onPress?: () => void;   
+  };
+ const Login = (props: LoginProps) => {
+    
   return (
-  <TouchableOpacity style={styles.LoginComp}>
-            <Text style={styles.textcomp}>Login</Text>
+
+  <TouchableOpacity onPress={props.onPress} style={[styles.LoginComp,{backgroundColor:props.backgroundcolor}]}>
+            <Text style={[styles.textcomp,{color:props.color}]}>{props.text}</Text>
+  
    </TouchableOpacity>
   )
 }
@@ -14,7 +24,7 @@ const styles=StyleSheet.create({
     LoginComp:{
         width:vw(343),
         height:vh(48),
-        backgroundColor:Color.Neutral_White,
+        
         paddingRight:vw(20),
         paddingLeft:vw(20),
         gap:vw(10),
@@ -23,7 +33,7 @@ const styles=StyleSheet.create({
     },
     textcomp:{
         fontFamily:Fonts.Lexend,
-        color:Color.Neutral_Black,
+        // color:Color.Neutral_Black,
         fontSize:normalize(16),
         fontWeight:400  ,
         alignSelf:"center"
