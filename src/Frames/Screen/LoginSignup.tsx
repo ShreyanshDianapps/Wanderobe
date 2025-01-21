@@ -51,13 +51,16 @@ const LoginSignup = ({ navigation }) => {
   const togglePasswordVisibility = () => {
     setShowPassword(prevState => !prevState); // Toggle visibility
   };
-
-  const handleonpress = () => {
-    // Handle login press here
-    navigation.navigate('createaccount',{
+  const handlebottom=()=>{
+    navigation.push('createaccount',{
       image:image
     }
     )
+  }
+
+  const handleonpress = () => {
+    // Handle login press here
+   
   };
 
   return (
@@ -157,6 +160,7 @@ const LoginSignup = ({ navigation }) => {
         <BottomTextComponent
         text1="New User?"
         text2="Create Account"
+        onPress={handlebottom}
          style={{
                             paddingTop:vh(151)
              }}

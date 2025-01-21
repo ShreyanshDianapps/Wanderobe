@@ -50,6 +50,10 @@ const CreateAccount = ({ navigation }) => {
         setchecked(ischecked)
     }
     const handlepress=()=>{
+        navigation.push('login',{
+            image:image
+          }
+          )
 
     }
 
@@ -115,7 +119,7 @@ const CreateAccount = ({ navigation }) => {
                     text="Create account"
                     backgroundcolor={Color.Neutral_Black}
                     color={Color.Neutral_White}
-                    onPress={handlepress}
+                    // onPress={handlepresst}
 
                     />
                     <BottomTextComponent
