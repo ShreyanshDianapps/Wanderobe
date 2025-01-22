@@ -36,6 +36,9 @@ const CreateAccount = ({ navigation }) => {
     }
 
     };
+    const handlePress_Create_Account=()=>{
+        navigation.push('createprofile')
+    }
 
 
     const handlePasswordChange = (value: string) => {
@@ -54,8 +57,8 @@ const CreateAccount = ({ navigation }) => {
             image:image
           }
           )
-
     }
+    
 
     return (
         <View style={styles.container}>
@@ -119,7 +122,7 @@ const CreateAccount = ({ navigation }) => {
                     text="Create account"
                     backgroundcolor={Color.Neutral_Black}
                     color={Color.Neutral_White}
-                    // onPress={handlepresst}
+                    onPress={handlePress_Create_Account}
 
                     />
                     <BottomTextComponent

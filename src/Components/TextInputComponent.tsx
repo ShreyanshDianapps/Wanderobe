@@ -12,6 +12,7 @@ type TextInputProps = {
   text: string;
   placeholder: string;
   style?: object;
+  stylemain?:object
   value: string;
   pass?: boolean; // Optional prop to enable password functionality
   onChange?: (value: string) => void; // Function to handle text change
@@ -24,10 +25,11 @@ const TextInputComponent = (props: TextInputProps) => {
   };
 
   return (
-    <View>
-      <Text style={styles.title}>{props.text}</Text>
+    <View style={[props.stylemain]}>
+      { props.text?<Text style={styles.title}>{props.text}</Text>:null
+}
 
-      <View style={styles.inputContainer}>
+      <View style={[styles.inputContainer]}>
         <TextInput
           placeholder={props.placeholder}
           style={[styles.textInput, props.style]} 
