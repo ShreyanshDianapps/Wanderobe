@@ -1,5 +1,5 @@
 import React from 'react'
-import { View ,Text, TouchableOpacity, StyleSheet} from 'react-native'
+import { View ,Text, TouchableOpacity, StyleSheet,Platform} from 'react-native'
 //utils import
 import { vh,vw,normalize } from '../utils/dimensions'
 import Fonts from '../utils/Fonts'
@@ -25,6 +25,8 @@ type BottomTextComponentProps={
 }
 const styles=StyleSheet.create({
     bottomtextcontainer:{
+        // position:"absolute",
+        // top:Platform.OS==='ios'
         flexDirection:"row",
         justifyContent:"center",
         alignItems:"center",    

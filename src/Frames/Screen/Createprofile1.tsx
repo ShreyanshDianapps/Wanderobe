@@ -16,7 +16,7 @@ import HideComponent from '../../Components/HideComponent'
 import Login from '../../Components/Login'
 
 
-const Createprofile1 = ({navigation}) => {
+const Createprofile1 = () => {
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
     const [si_data, setsi_data] = useState(["xs", "s", "m", "L", "T", "B", "W", "HJ", "Hj"])

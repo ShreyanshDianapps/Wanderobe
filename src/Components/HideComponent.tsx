@@ -9,6 +9,7 @@ type HideComponentProps = {
     text:string
   value: boolean;
   onPress?: (value: boolean) => void; 
+  
 };
 
 const HideComponent = (props: HideComponentProps) => {

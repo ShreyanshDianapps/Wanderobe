@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Dimensions, StyleSheet, View, Text, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
+import { Dimensions, StyleSheet, View, Text, TextInput, TouchableOpacity, ImageBackground,Platform } from 'react-native';
 import Wanderobe from '../../assets/Images/Wanderobe.svg';
 import { normalize, vh, vw } from '../../utils/dimensions';
 import Color from '../../utils/Color';
@@ -127,7 +127,7 @@ const LoginSignup = ({ navigation }) => {
               </TouchableOpacity>
               <Text style={{ fontFamily: Fonts.Lexend, fontSize: 12, color: Color.Neutral_Black }}>Remember me</Text>
             </View>
-            <Text style={styles.forgetpassword}>Forgot password?</Text>
+           <TouchableOpacity onPress={()=>navigation.push('forgetpassword')}><Text style={styles.forgetpassword}>Forgot password?</Text></TouchableOpacity>
           </View>
           </View>
 
@@ -162,7 +162,7 @@ const LoginSignup = ({ navigation }) => {
         text2="Create Account"
         onPress={handlebottom}
          style={{
-                            paddingTop:vh(151)
+                            paddingTop:Platform.OS==='ios'?vh(151):vh(120)
              }}
         />
         
@@ -182,7 +182,8 @@ const styles = StyleSheet.create({
     flex:1,
     width: '100%',
     height: vh(135),
-    
+     zIndex:-1
+     
     // marginTop:vh(20)
     
 

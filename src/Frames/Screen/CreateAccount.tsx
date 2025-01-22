@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Image, ImageBackground, Text, Touchable, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Image, ImageBackground, Text, Platform,Touchable, TouchableOpacity } from 'react-native';
 import TextInputComponent from '../../Components/TextInputComponent';
 import { useRoute } from '@react-navigation/native';
 //import utils
@@ -129,7 +129,7 @@ const CreateAccount = ({ navigation }) => {
                 text1="Already have an account?"
                 text2="Login"
                 style={{
-                    paddingTop:vh(200)
+                     paddingTop:Platform.OS==='ios'?vh(200):vh(160)
                 }}
                 onPress={handlepress}
                 />
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
         top: 0,
         left: 0,
         right: 0,
-        bottom: vh(675),
+        bottom: Platform.OS==='ios'?vh(675):vh(633),
         backgroundColor: 'rgba(0,0,0,0.5)',
     },
     Wanderobe_cont: {

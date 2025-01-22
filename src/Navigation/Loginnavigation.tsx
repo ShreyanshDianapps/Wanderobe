@@ -6,6 +6,7 @@ import LoginSignup from '../Frames/Screen/LoginSignup'
 import Tutorial from '../Frames/Screen/Tutorial'
 import CreateAccount from '../Frames/Screen/CreateAccount'
 import Createprofile1 from '../Frames/Screen/Createprofile1'
+import ForgetPassword from '../Frames/Screen/ForgetPassword'
 
 
 
@@ -22,6 +23,8 @@ const Loginnavigation = () => {
   <Stack.Screen name="login" component={LoginSignup} />
   <Stack.Screen name="createaccount" component={CreateAccount} />
   <Stack.Screen name='createprofile' component={Createprofile1}/>
+  <Stack.Screen name='forgetpassword' component={ForgetPassword}/>
+  
  
 
   
