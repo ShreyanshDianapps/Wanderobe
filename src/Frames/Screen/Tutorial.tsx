@@ -63,8 +63,14 @@ const Tutorial = () => {
 
         <Login
         text="Login"
-          backgroundcolor={Color.Neutral_White}  
-          color={Color.Neutral_Black}  
+          style={{
+            textstyle:{
+              color:Color.Neutral_Black
+            },
+            viewstyle:{
+              backgroundColor:Color.Neutral_White
+            }
+          }}
           onPress={handleLoginPress} 
         />
 

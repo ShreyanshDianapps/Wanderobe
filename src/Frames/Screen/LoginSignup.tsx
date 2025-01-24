@@ -1,13 +1,13 @@
 import React, { useRef, useState } from 'react';
-import { Dimensions, StyleSheet, View, Text, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
+import { Dimensions, StyleSheet, View, Text, TextInput, TouchableOpacity, ImageBackground,Platform } from 'react-native';
 import Wanderobe from '../../assets/Images/Wanderobe.svg';
 import { normalize, vh, vw } from '../../utils/dimensions';
 import Color from '../../utils/Color';
 import Fonts from '../../utils/Fonts';
 import { IsvalidEmail, validatePassword } from '../../utils/Functions';
-import EyeHide from '../../assets/Images/Eyeicon.svg'; // Eye hide icon
-import EyeShow from '../../assets/Images/Eyeshow.svg'; // Eye show icon
-import Tickicon from '../../assets/Images/Checkboxtick.svg'; // Tick icon for checkbox
+import EyeHide from '../../assets/Images/Eyeicon.svg'; 
+import EyeShow from '../../assets/Images/Eyeshow.svg'; 
+import Tickicon from '../../assets/Images/Checkboxtick.svg'; 
 import Login from '../../Components/Login';
 import LoginCont from '../../Components/LoginCont';
 import Google from '../../assets/Images/Google.svg';
@@ -18,6 +18,7 @@ import { Google_signIn, handleFacebookLogin } from '../../utils/Signin';
 import { useRoute } from '@react-navigation/native';
 import Backicon from '../../assets/Images/Backicon.svg'
 import BottomTextComponent from '../../Components/BottomTextComponent';
+import { getAuthStatus,setAuthStatus } from '../../utils/Is_Auth';
 
 const LoginSignup = ({ navigation }) => {
   const route = useRoute();
@@ -59,8 +60,9 @@ const LoginSignup = ({ navigation }) => {
   }
 
   const handleonpress = () => {
-    // Handle login press here
-   
+      setAuthStatus(true)
+      navigation.replace('bottomcomponent')
+    
   };
 
   return (
@@ -127,7 +129,7 @@ const LoginSignup = ({ navigation }) => {
               </TouchableOpacity>
               <Text style={{ fontFamily: Fonts.Lexend, fontSize: 12, color: Color.Neutral_Black }}>Remember me</Text>
             </View>
-            <Text style={styles.forgetpassword}>Forgot password?</Text>
+           <TouchableOpacity onPress={()=>navigation.push('forgetpassword')}><Text style={styles.forgetpassword}>Forgot password?</Text></TouchableOpacity>
           </View>
           </View>
 
@@ -137,8 +139,14 @@ const LoginSignup = ({ navigation }) => {
           <View style={styles.logincontainer}>
             <Login 
             text="Login"
-              backgroundcolor={Color.Neutral_Black} 
-              color={Color.Neutral_White}
+              style={{
+                textstyle:{
+                  color:Color.Neutral_White
+                },
+                viewstyle:{
+                  backgroundColor:Color.Neutral_Black
+                }
+              }}
               onPress={handleonpress}
             />
             <View style={styles.linecomp}>
@@ -162,7 +170,7 @@ const LoginSignup = ({ navigation }) => {
         text2="Create Account"
         onPress={handlebottom}
          style={{
-                            paddingTop:vh(151)
+                            paddingTop:Platform.OS==='ios'?vh(151):vh(120)
              }}
         />
         
@@ -182,7 +190,8 @@ const styles = StyleSheet.create({
     flex:1,
     width: '100%',
     height: vh(135),
-    
+     zIndex:-1
+     
     // marginTop:vh(20)
     
 

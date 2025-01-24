@@ -7,6 +7,11 @@ export default{
    Wanderobe:require(imagepath+'Wanderobe.svg'),
    EyeHide:require(imagepath+'Eyeicon.svg'),
    EyeShow:require(imagepath+'Eyeshow.svg'),
-   
+   HomeUpper:require(imagepath+'Homeupper.png'),
+   Collection_Men:require(imagepath+'Collection-men.png'),
+   Collection_women:require(imagepath+'Collection-women.png'),
+   Collection_Both:require(imagepath+'Collection-both.png'),
+   NewArrival_background:require(imagepath+'NewArriavlBackground.png'),
+  
    // LoginBackground:require(imagepath+'LoginBackground.svg')
 }

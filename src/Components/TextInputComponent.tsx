@@ -9,25 +9,27 @@ import Fonts from '../utils/Fonts';
 import { vw, vh } from '../utils/dimensions';
 
 type TextInputProps = {
+  
   text: string;
   placeholder: string;
   style?: object;
+  stylemain?:object
   value: string;
-  pass?: boolean; // Optional prop to enable password functionality
-  onChange?: (value: string) => void; // Function to handle text change
-};
+  pass?: boolean; 
+  onChange?: (value: string) => void; 
+}
 
 const TextInputComponent = (props: TextInputProps) => {
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
-    setShowPassword((prevState) => !prevState); // Toggle visibility state
+    setShowPassword((prevState) => !prevState); 
   };
 
   return (
-    <View>
-      <Text style={styles.title}>{props.text}</Text>
-
-      <View style={styles.inputContainer}>
+    <View style={[props.stylemain]}>
+      { props.text?<Text style={styles.title}>{props.text}</Text>:null
+}
+     
         <TextInput
           placeholder={props.placeholder}
           style={[styles.textInput, props.style]} 
@@ -46,7 +48,7 @@ const TextInputComponent = (props: TextInputProps) => {
           </TouchableOpacity>
         )}
       </View>
-    </View>
+   
   );
 };
 
@@ -65,15 +67,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     paddingLeft: 16,
     color: Color.Neutral_Black,
+   
+    
   },
-  inputContainer: {
-    position: 'relative',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
+  
   eyeIcon: {
     position: 'absolute',
-    right: 16,
+    top:vh(30),
+    right: vw(20),
     zIndex: 1,
   },
 });

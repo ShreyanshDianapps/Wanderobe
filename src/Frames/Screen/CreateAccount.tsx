@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Image, ImageBackground, Text, Touchable, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Image, ImageBackground, Text, Platform,Touchable, TouchableOpacity } from 'react-native';
 import TextInputComponent from '../../Components/TextInputComponent';
 import { useRoute } from '@react-navigation/native';
 //import utils
@@ -36,6 +36,9 @@ const CreateAccount = ({ navigation }) => {
     }
 
     };
+    const handlePress_Create_Account=()=>{
+        navigation.push('createprofile')
+    }
 
 
     const handlePasswordChange = (value: string) => {
@@ -54,8 +57,8 @@ const CreateAccount = ({ navigation }) => {
             image:image
           }
           )
-
     }
+    
 
     return (
         <View style={styles.container}>
@@ -117,16 +120,23 @@ const CreateAccount = ({ navigation }) => {
                     </View>
                     <Login
                     text="Create account"
-                    backgroundcolor={Color.Neutral_Black}
+                    style={{
+                        viewstyle:{
+                            backgroundColor:Color.Neutral_Black
+                        },
+                        textstyle:{
+                            color:Color.Neutral_White
+                        }
+                    }}
                     color={Color.Neutral_White}
-                    // onPress={handlepresst}
+                    onPress={handlePress_Create_Account}
 
                     />
                     <BottomTextComponent
                 text1="Already have an account?"
                 text2="Login"
                 style={{
-                    paddingTop:vh(200)
+                     paddingTop:Platform.OS==='ios'?vh(200):vh(160)
                 }}
                 onPress={handlepress}
                 />
@@ -158,7 +168,7 @@ const styles = StyleSheet.create({
         top: 0,
         left: 0,
         right: 0,
-        bottom: vh(675),
+        bottom: Platform.OS==='ios'?vh(675):vh(633),
         backgroundColor: 'rgba(0,0,0,0.5)',
     },
     Wanderobe_cont: {
@@ -188,7 +198,7 @@ const styles = StyleSheet.create({
         fontSize: normalize(24)
     },
     longtext: {
-        fontFamily: Fonts.LexendLight,
+        fontFamily: 'Lexend-Medium',
         fontSize: normalize(14),
         color: Color.Neutal_sub
 
