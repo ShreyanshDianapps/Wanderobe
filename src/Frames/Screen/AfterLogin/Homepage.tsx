@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {StyleSheet, View,ScrollView,Text, ImageBackground} from 'react-native'
 import Homeupper from '../../../Components/HomeupperComponent/Homeupper'
 import GuestComponet from '../../../Components/HomeupperComponent/GuestComponet'
@@ -10,6 +10,7 @@ import localimages from '../../../utils/localimages'
 import CollectionComponent from '../../../Components/HomeupperComponent/CollectionComponent'
 import HowITWorkComponent from '../../../Components/HomeupperComponent/HowITWorkComponent'
 import Login from '../../../Components/Login'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const TextComp=()=>{
   return (
@@ -120,11 +121,28 @@ const styleimage=StyleSheet.create({
    }
 })
 const Homepage = () => {
+  const [token,setToken]=React.useState('')
+  useEffect(() => {
+    const fetchToken = async () => {
+      try {
+        const accessToken = await AsyncStorage.getItem('accesstoken');
+        setToken(accessToken); // Update state with the retrieved token
+      } catch (error) {
+        console.error('Error fetching token:', error);
+      }
+    };
+
+    fetchToken();
+  }, []);
+  
+  
   return (
     <ScrollView>
     <View style={styles.maincomp}>
     <Homeupper/>
-    <GuestComponet/>
+{token===null?
+    <GuestComponet/>:null
+}
     <CollectionComponent/>
     <HowITWorkComponent/>
     <TextComp/>

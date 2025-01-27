@@ -4,6 +4,9 @@ import {
     statusCodes,
   } from '@react-native-google-signin/google-signin';
   import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
+  import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+  
   
   // Somewhere in your code
   GoogleSignin.configure(
@@ -39,7 +42,7 @@ import {
       console.error(error);
     }
   };
-  const handleFacebookLogin = async () => {
+  const handleFacebookLogin = async (callback=(token:string)=>{}) => {
     try {
       const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
       if (result.isCancelled) {
@@ -47,8 +50,12 @@ import {
       } else {
         console.log('Login success with permissions: ' + result.grantedPermissions.toString());
         const data = await AccessToken.getCurrentAccessToken();
+       
         if (data) {
           console.log('Access Token: ', data.accessToken);
+          
+          callback(data.accessToken)
+          
           // You can now use the access token to authenticate with your backend
         }
       }

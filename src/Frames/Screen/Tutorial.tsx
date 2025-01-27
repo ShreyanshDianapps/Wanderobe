@@ -9,13 +9,28 @@ import Wanderobe from '../../assets/Images/Wanderobe.svg';
 import Login from '../../Components/Login';  // Import your Login component
 import ContinueasGuest from '../../Components/ContinueasGuest'; // Assuming this is another component
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Tutorial = () => {
+const Tutorial = ({navigation}) => {
   const width = Dimensions.get('window').width;
   const height = Dimensions.get('window').height;
-  const navigation = useNavigation();
+  
   const [activeIndex, setActiveIndex] = useState(0);
-
+  const handleLoginPressgust = async () => {
+    try {
+      await AsyncStorage.removeItem('accesstoken');
+  
+      const accessToken = await AsyncStorage.getItem('accesstoken'); 
+      if (accessToken === null) {
+        console.log(true);
+        navigation.replace('bottomcomponent'); 
+      } else {
+        console.log(false);
+      }
+    } catch (error) {
+      console.error('Error handling access token:', error);
+    }
+  };
   const handleLoginPress = () => {
     // Send the active image to the 'login' screen
     console.log(activeIndex)
@@ -74,7 +89,20 @@ const Tutorial = () => {
           onPress={handleLoginPress} 
         />
 
-        <ContinueasGuest />
+        <Login
+        text="Continue as guest"
+        style={{
+          textstyle:{
+            color:Color.Neutral_White
+          },
+          viewstyle:{
+            backgroundColor:"transparent",
+            borderColor:Color.Neutral_White,
+            borderWidth:normalize(1.2)
+          }
+        }}
+        onPress={handleLoginPressgust} />
+
         
         <TouchableOpacity>
           <Text style={styles.newuser}>New user?</Text>

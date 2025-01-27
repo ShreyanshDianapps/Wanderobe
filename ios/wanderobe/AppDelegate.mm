@@ -5,11 +5,23 @@
 #import <SafariServices/SafariServices.h>
 #import <FBSDKCoreKit/FBSDKCoreKit-Swift.h>
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
+
+
 @implementation AppDelegate
 
+
+// - (BOOL)application:(UIApplication *)application
+//             openURL:(NSURL *)url
+//             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+//   return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url options:options];
+// }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [FBSDKApplicationDelegate.sharedInstance initializeSDK];
   self.moduleName = @"wanderobe";
+  
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};

@@ -16,7 +16,8 @@ import ChoseYorHotelIcon from '../assets/Images/hotel 1.svg'
 import ShopYourWanderobe from '../assets/Images/discount 1.svg'
 import HotelDelivartIcon from '../assets/Images/unboxing 1.svg'
 import Try_DecideIcon from '../assets/Images/exchange 1.svg'
-
+import HeartICon from '../assets/Images/Heart.svg'
+import ShopbagIcon from '../assets/Images/Shopbag.svg'
 
 export {
         HomeIcon,
@@ -36,7 +37,9 @@ export {
         ShopYourWanderobe,
         HotelDelivartIcon,
         Try_DecideIcon,
-        ChoseYorHotelIcon
+        ChoseYorHotelIcon,
+        HeartICon,
+        ShopbagIcon
         
 
 }

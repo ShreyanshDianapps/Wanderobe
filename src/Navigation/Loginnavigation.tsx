@@ -8,6 +8,7 @@ import CreateAccount from '../Frames/Screen/CreateAccount'
 import Createprofile1 from '../Frames/Screen/Createprofile1'
 import ForgetPassword from '../Frames/Screen/ForgetPassword'
 import Bottombarcomponent from '../Components/Bottombarcomponent'
+import { DrawerNAvigation } from '../Components/DrawerNAvigation'
 
 
 
@@ -25,7 +26,7 @@ const Loginnavigation = () => {
   <Stack.Screen name="createaccount" component={CreateAccount} />
   <Stack.Screen name='createprofile' component={Createprofile1}/>
   <Stack.Screen name='forgetpassword' component={ForgetPassword}/>
-  <Stack.Screen name='bottomcomponent' component={Bottombarcomponent}/>
+  <Stack.Screen name='bottomcomponent' component={DrawerNAvigation}/>
   
   
  

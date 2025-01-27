@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Dimensions, StyleSheet, View, Text, TextInput, TouchableOpacity, ImageBackground,Platform } from 'react-native';
 import Wanderobe from '../../assets/Images/Wanderobe.svg';
 import { normalize, vh, vw } from '../../utils/dimensions';
@@ -19,8 +19,13 @@ import { useRoute } from '@react-navigation/native';
 import Backicon from '../../assets/Images/Backicon.svg'
 import BottomTextComponent from '../../Components/BottomTextComponent';
 import { getAuthStatus,setAuthStatus } from '../../utils/Is_Auth';
+//async storage
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AccessToken } from 'react-native-fbsdk-next';
+import axios from 'axios';
 
 const LoginSignup = ({ navigation }) => {
+ 
   const route = useRoute();
   const { image } = route.params;
   const [email, setEmail] = useState('');
@@ -30,16 +35,28 @@ const LoginSignup = ({ navigation }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [ischeck, setChecked] = useState(false); // Checkbox state
   const passwordRef = useRef(null);
-
+  const [tokern,settoken]=useState('');
+  
   const handleEmailChange = (value: string) => {
+    
     setEmail(value);
-    if (value && !IsvalidEmail(value)) {
-      setEmailerror('Please enter a valid email address.');
-    } else {
-      setEmailerror('');
-    }
+    // if (value && !IsvalidEmail(value)) {
+    //   setEmailerror('Please enter a valid email address.');
+    // } else {
+    //   setEmailerror('');
+    // }
   };
-
+const handleFacebookLogin1=()=>{
+   handleFacebookLogin((token:string)=>{
+    
+    console.log("token",token)
+    if(token){
+      AsyncStorage.setItem('accesstoken',token);
+      navigation.replace('bottomcomponent')
+    }
+   });
+  
+}
   const handlePasswordChange = (value: string) => {
     setPassword(value);
     if (value && !validatePassword(value)) {
@@ -59,11 +76,22 @@ const LoginSignup = ({ navigation }) => {
     )
   }
 
-  const handleonpress = () => {
-      setAuthStatus(true)
-      navigation.replace('bottomcomponent')
+  const handleonpress = async () => {
     
-  };
+      setAuthStatus(true); // Assuming `setAuthStatus` updates some state
+  
+      const response=await axios.post('https://dummyjson.com/auth/login', {
+        
+          username: email,  // Make sure `email` is defined and accessible
+          password: pass,   // Make sure `pass` is defined and accessible
+      })
+      if(response.data.accessToken){
+        AsyncStorage.setItem('accesstoken',response?.data.accessToken)
+        navigation.replace('bottomcomponent')
+      }
+      }
+      
+  
 
   return (
     <View style={styles.main_container}>
@@ -158,7 +186,7 @@ const LoginSignup = ({ navigation }) => {
             </View>
             <View style={styles.loginoptions}>
               <LoginCont icon={Google} onPress={Google_signIn} />
-              <LoginCont icon={Facebook} onPress={handleFacebookLogin} />
+              <LoginCont icon={Facebook} onPress={handleFacebookLogin1} />
               <LoginCont icon={Apple} />
             </View>
           </View>

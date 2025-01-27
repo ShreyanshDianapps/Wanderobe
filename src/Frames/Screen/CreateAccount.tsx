@@ -36,8 +36,22 @@ const CreateAccount = ({ navigation }) => {
     }
 
     };
-    const handlePress_Create_Account=()=>{
-        navigation.push('createprofile')
+    const handlePress_Create_Account=async()=>{
+        fetch('https://dummyjson.com/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              
+              username: email,
+              password: password,
+              expiresInMins: 30, // optional, defaults to 60
+            }),
+            credentials: 'include' // Include cookies (e.g., accessToken) in the request
+          })
+          .then(res => res.json())
+          .then(console.log).then()
+
+        
     }
 
 
